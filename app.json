@@ -1,4 +1,8 @@
 {
   "name": "BaileyShoppingApp",
-  "displayName": "BaileyShoppingApp"
+  "displayName": "BaileyShoppingApp",
+  "react-native-google-mobile-ads": {
+    "ios_app_id": "ca-app-pub-1152495269936967~6611443092"
+  }
+
 }

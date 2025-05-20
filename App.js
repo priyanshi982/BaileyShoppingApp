@@ -6,18 +6,20 @@
 
 import React from 'react';
 import {BottomBarNavigator} from './src/navigation/bottomBarNavigator';
-import {useSelector} from 'react-redux';
+import {Provider, useSelector} from 'react-redux';
+// import mainStore from './src/redux/store';
+import {PersistGate} from 'redux-persist/integration/react';
+import {StackNavigator} from './src/navigation/stackNavigator';
+import store from './src/redux/store';
 
 const App = () => {
-  const {loginData} = useSelector(state => state?.userLoginReducer);
-  // const isLoginPage = data?.isLogined;
-
-  console.log('data-->', loginData);
+  // const {store, persistor} = mainStore;
   return (
-    <>
-      {/* {!isLoginPage && <StackNavigator />} */}
+    <Provider store={store}>
+      {/* <PersistGate loading={null} persistor={persistor}> */}
       <BottomBarNavigator />
-    </>
+      {/* </PersistGate> */}
+    </Provider>
   );
 };
 

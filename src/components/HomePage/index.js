@@ -12,13 +12,42 @@ import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import NewArrivals from '../newArrivals';
 import {newArrivedProducts} from '../../data';
 import HomeBanner from '../homeBanner';
+import {
+  AppOpenAd,
+  TestIds,
+  AdEventType,
+  BannerAd,
+  BannerAdSize,
+} from 'react-native-google-mobile-ads';
 
 const HomePage = props => {
   const {navigation} = props || {};
 
+  // const adUnitId = __DEV__
+  //   ? TestIds.APP_OPEN
+  //   : 'ca-app-pub-xxxxxxxxxxxxx/yyyyyyyyyyyyyy';
+
+  // const appOpenAd = AppOpenAd.createForAdRequest(adUnitId, {
+  //   keywords: ['fashion', 'clothing'],
+  // });
+
+  // // Preload an app open ad
+  // appOpenAd.load();
+
+  // // Show the app open ad when user brings the app to the foreground.
+  // appOpenAd.show();
+
   return (
     <View style={styles.headerContainer}>
       <HomeHeader />
+
+      <BannerAd
+        unitId={TestIds.BANNER} // Replace with your actual Ad Unit ID in production
+        size={BannerAdSize.FULL_BANNER}
+        requestOptions={{
+          requestNonPersonalizedAdsOnly: true,
+        }}
+      />
 
       <ScrollView
         style={styles.ScrollContainer}
